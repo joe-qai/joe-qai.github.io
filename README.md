@@ -1,63 +1,100 @@
-# Joe Qai - Personal Homepage
+# Joe Qai - GitHub Portfolio
 
-![GitHub Pages](https://img.shields.io/github/deployments/joe-qai/joe-qai.github.io/github-pages)
-![GitHub last commit](https://img.shields.io/github/last-commit/joe-qai/joe-qai.github.io)
+![Profile Views](https://komarev.com/ghpvc/?username=joe-qai&color=brightgreen)
+![GitHub Followers](https://img.shields.io/github/followers/joe-qai)
+![GitHub Stars](https://img.shields.io/github/stars/joe-qai?label=Total%20Stars)
+![GitHub Forks](https://img.shields.io/github/forks/joe-qai?label=Total%20Forks)
 
-Welcome to my personal homepage! This is a modern, responsive portfolio website showcasing my projects and skills.
+## 👋 关于我
 
-## Features
+我是 Joe Qai，一名热爱技术的软件工程师，专注于 **软件测试自动化** 和 **AI 辅助测试** 领域。拥有多年的测试工程化经验，致力于通过技术创新提升测试效率和质量。
 
-- 🎨 **Modern Design**: Dark theme with gradient background
-- 📱 **Responsive**: Works on desktop, tablet, and mobile devices
-- 🚀 **Fast**: Pure HTML/CSS/JS, no framework dependencies
-- 📊 **Project Showcase**: Displays all my GitHub projects with stats
+## 📊 统计数据
 
-## Technologies Used
+| 指标 | 数量 |
+|------|------|
+| 公共仓库 | 17 |
+| 总 Stars | 64 |
+| 总 Forks | 38 |
+| 编程语言 | Python, Java, JavaScript |
+| 开源经验 | 6+ 年 |
 
-- HTML5
-- CSS3 (Flexbox, Grid, Animations)
-- JavaScript (ES6+)
-- DiceBear (Avatar Generation)
-- Flaticon (Icons)
+## 🚀 热门项目
 
-## Getting Started
+### 🔥 高人气项目
 
-```bash
-# Clone the repository
-git clone https://github.com/joe-qai/joe-qai.github.io.git
+| 项目 | 描述 | Stars |
+|------|------|-------|
+| [httprunner_swagger](https://github.com/joe-qai/httprunner_swagger) | Swagger 接口文档解析器，自动生成测试用例 | ⭐ 56 |
+| [ai_appium_po](https://github.com/joe-qai/ai_appium_po) | 基于 Appium 的移动端自动化测试框架 | ⭐ 活跃 |
+| [testgen](https://github.com/joe-qai/testgen) | AI 驱动的测试用例生成平台 | ⭐ 活跃 |
 
-# Navigate to the project
-cd joe-qai.github.io
+### 📁 项目分类
 
-# Open in browser
-open index.html
+#### 🐍 Python 项目
+- **测试自动化**: `ai_appium_po`, `testgen`, `testing_skills`, `httprunner_swagger`, `XMind2TestCase`
+- **Web 开发**: `flask_web`, `yiqing`
+- **工具库**: `pymobiledevice3-wrapper`
+
+#### ☕ Java 项目
+- **测试框架**: `CucumberDriver`, `SpringBootSwagger`
+- **工具应用**: `autoMsg`
+
+#### 🌐 前端/文档项目
+- **学习资源**: `superpowers-cn`, `build-your-own-x`, `UIUX-Pro-Max-CN`
+- **公益项目**: `SpareFoodShare`
+
+## 🛠️ 技术栈
+
+### 编程语言
+- **Python** - 主要开发语言
+- **Java** - 企业级应用开发
+- **JavaScript/TypeScript** - 前端开发
+
+### 测试技术
+- **自动化测试**: Appium, Selenium, HttpRunner
+- **测试框架**: pytest, JUnit, TestNG, Cucumber
+- **AI 测试**: LLM, RAG, 自动化用例生成
+
+### Web 开发
+- **后端**: Flask, Spring Boot
+- **前端**: HTML5, CSS3, JavaScript
+- **数据库**: SQLite, MySQL, PostgreSQL, ChromaDB
+
+### DevOps
+- **CI/CD**: GitHub Actions, GitLab CI
+- **容器化**: Docker
+- **部署**: GitHub Pages
+
+## 📈 贡献统计
+
+```text
+┌─────────────────────────────────────────────────────────────┐
+│                     GitHub 活动概览                         │
+├─────────────────────────────────────────────────────────────┤
+│  Commits: ████████████░░░░░░░░░░░░░░░░░░░  120+           │
+│  PRs:      ██████░░░░░░░░░░░░░░░░░░░░░░░░  20+            │
+│  Issues:   ████░░░░░░░░░░░░░░░░░░░░░░░░░░  15+            │
+│  Stars:    ████████████░░░░░░░░░░░░░░░░░░░  64             │
+│  Forks:    █████████░░░░░░░░░░░░░░░░░░░░░░  38             │
+└─────────────────────────────────────────────────────────────┘
 ```
 
-## Development
+## 🤝 社区参与
 
-To run locally:
+- 积极参与开源项目贡献
+- 分享技术博客和教程
+- 参与技术社区讨论
 
-```bash
-# Start a local server
-python -m http.server 8000
+## 📫 联系方式
 
-# Open http://localhost:8000 in your browser
-```
+- **GitHub**: [@joe-qai](https://github.com/joe-qai)
+- **邮箱**: joe.qai@example.com
 
-## Projects
+## 📄 许可证
 
-My featured projects include:
+所有项目均采用 **MIT License**，欢迎自由使用和贡献！
 
-- **ai_appium_po** - Enterprise-level App automation testing framework
-- **testing_skills** - Software testing toolset for requirements analysis and test case generation
-- **testgen** - AI-powered test case generation platform
-- **httprunner_swagger** - Swagger API documentation parser
+---
 
-## License
-
-MIT License
-
-## Contact
-
-- GitHub: [@joe-qai](https://github.com/joe-qai)
-- Email: joe.qai@example.com
+*持续学习，不断进步 ✨*
