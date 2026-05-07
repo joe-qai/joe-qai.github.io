@@ -2,15 +2,23 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joe Qai - 个人主页</title>
-    <!-- Open Graph / WeChat Share -->
-    <meta property="og:title" content="Joe Qai - 个人主页">
-    <meta property="og:description" content="Software Test Engineer | Automation Expert | Open Source Contributor">
-    <meta property="og:image" content="https://api.dicebear.com/7.x/avataaars/svg?seed=male-joe&background=transparent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Joe Qai - Software Test Engineer</title>
+    <!-- Open Graph for Sharing -->
+    <meta property="og:title" content="Joe Qai | Software Test Engineer & Open Source Contributor">
+    <meta property="og:description" content="专注于自动化测试、AI测试和开源项目贡献。拥有24+个GitHub项目，涵盖Python、Java、Web自动化等技术领域。">
+    <meta property="og:image" content="https://neeko-copilot.bytedance.net/api/text2image?prompt=professional%20software%20developer%20profile%20banner%20with%20code%20icons%20and%20tech%20elements%20dark%20blue%20gradient%20background&image_size=landscape_16_9">
     <meta property="og:url" content="https://joe-qai.github.io">
     <meta property="og:type" content="website">
-    <meta name="description" content="Joe Qai 的个人主页 - Software Test Engineer | Automation Expert | Open Source Contributor">
+    <meta property="og:site_name" content="Joe Qai">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Joe Qai | Software Test Engineer">
+    <meta name="twitter:description" content="专注于自动化测试、AI测试和开源项目贡献">
+    <meta name="twitter:image" content="https://neeko-copilot.bytedance.net/api/text2image?prompt=professional%20software%20developer%20profile%20banner%20with%20code%20icons%20and%20tech%20elements%20dark%20blue%20gradient%20background&image_size=landscape_16_9">
+    <!-- WeChat Share -->
+    <meta name="description" content="Joe Qai 的个人主页 - 软件测试工程师，专注于自动化测试、AI测试和开源项目贡献">
+    <meta name="keywords" content="software testing, automation, Python, Java, open source, test engineer">
     <style>
         * {
             margin: 0;
@@ -18,40 +26,47 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             min-height: 100vh;
             color: #ffffff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 16px;
         }
 
         /* Header */
         header {
-            padding: 80px 0 60px;
+            padding: 60px 0 40px;
             text-align: center;
             background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
         }
 
         .avatar {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            border: 4px solid #4a90d9;
-            margin-bottom: 20px;
-            box-shadow: 0 0 30px rgba(74, 144, 217, 0.5);
+            border: 3px solid #4a90d9;
+            margin-bottom: 16px;
+            box-shadow: 0 0 20px rgba(74, 144, 217, 0.5);
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             background: linear-gradient(90deg, #4a90d9, #67b8f5);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -60,27 +75,29 @@
 
         .title {
             color: #a0aec0;
-            font-size: 1.1rem;
-            margin-bottom: 30px;
+            font-size: 0.95rem;
+            margin-bottom: 24px;
         }
 
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
         .social-links a {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             color: #a0aec0;
             text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 30px;
+            padding: 8px 16px;
+            border-radius: 24px;
             background: rgba(255, 255, 255, 0.05);
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
         }
 
         .social-links a:hover {
@@ -90,94 +107,105 @@
         }
 
         .social-links img {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
         }
 
         /* Stats */
         .stats {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin: 40px 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin: 32px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .stat-item {
             text-align: center;
+            padding: 12px 0;
         }
 
         .stat-value {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: #4a90d9;
+            display: block;
         }
 
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: #a0aec0;
-            margin-top: 5px;
+            margin-top: 4px;
+            display: block;
         }
 
         /* Projects Section */
         .projects-section {
-            padding: 60px 0;
+            padding: 40px 0;
         }
 
         .section-title {
             text-align: center;
-            font-size: 1.8rem;
-            margin-bottom: 50px;
+            font-size: 1.5rem;
+            margin-bottom: 32px;
             position: relative;
+            padding-bottom: 12px;
         }
 
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
+            width: 50px;
+            height: 2px;
             background: linear-gradient(90deg, #4a90d9, #67b8f5);
-            border-radius: 3px;
+            border-radius: 2px;
         }
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
 
         .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 25px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 20px;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .project-card:active {
+            transform: scale(0.98);
         }
 
         .project-card:hover {
-            transform: translateY(-8px);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.07);
             border-color: rgba(74, 144, 217, 0.3);
         }
 
         .project-header {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
+            gap: 12px;
+            margin-bottom: 12px;
         }
 
         .project-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 12px;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            flex-shrink: 0;
         }
 
         .project-icon.python {
@@ -196,22 +224,34 @@
             background: linear-gradient(135deg, #000000, #343434);
         }
 
+        .project-icon.xslt {
+            background: linear-gradient(135deg, #EB8231, #F7931E);
+        }
+
+        .project-info {
+            flex: 1;
+            min-width: 0;
+        }
+
         .project-info h3 {
-            font-size: 1.2rem;
-            margin-bottom: 3px;
+            font-size: 1.05rem;
+            margin-bottom: 2px;
             color: #ffffff;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         .project-info .language {
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             color: #a0aec0;
         }
 
         .project-description {
             color: #a0aec0;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-bottom: 16px;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
@@ -222,36 +262,37 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 15px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .project-stats {
             display: flex;
-            gap: 20px;
+            gap: 16px;
         }
 
         .stat {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
             color: #a0aec0;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
         }
 
         .stat img {
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
         }
 
         .project-link {
             color: #4a90d9;
             text-decoration: none;
-            font-size: 0.9rem;
-            padding: 8px 15px;
-            border-radius: 20px;
+            font-size: 0.8rem;
+            padding: 6px 12px;
+            border-radius: 16px;
             background: rgba(74, 144, 217, 0.1);
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
 
         .project-link:hover {
@@ -262,38 +303,92 @@
         /* Footer */
         footer {
             text-align: center;
-            padding: 40px 0;
+            padding: 32px 0;
             color: #a0aec0;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             background: rgba(0, 0, 0, 0.3);
-            margin-top: 60px;
+            margin-top: 40px;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
+        /* Desktop Responsive */
+        @media (min-width: 600px) {
+            .container {
+                padding: 0 24px;
+            }
+
+            header {
+                padding: 80px 0 60px;
+            }
+
+            .avatar {
+                width: 150px;
+                height: 150px;
+            }
+
             h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
+            }
+
+            .title {
+                font-size: 1.1rem;
             }
 
             .stats {
-                gap: 20px;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 32px;
+                padding: 30px;
             }
 
             .stat-value {
-                font-size: 1.5rem;
+                font-size: 2rem;
+            }
+
+            .stat-label {
+                font-size: 0.9rem;
             }
 
             .projects-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 24px;
             }
 
-            .social-links {
-                flex-wrap: wrap;
+            .project-card {
+                padding: 24px;
             }
 
-            .social-links a {
+            .project-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            }
+
+            .project-info h3 {
+                font-size: 1.2rem;
+            }
+
+            .project-description {
                 font-size: 0.9rem;
-                padding: 8px 15px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 30px;
+            }
+        }
+
+        /* Touch optimizations */
+        @media (hover: none) {
+            .project-card:hover {
+                transform: none;
+            }
+            
+            .social-links a:hover {
+                transform: none;
             }
         }
     </style>
@@ -302,7 +397,7 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=male-joe&background=transparent" alt="Joe Qai" class="avatar">
+            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=engineer-joe&eyes=happy&mouth=smile&hair=short&accessories=roundGlasses&facialHair=none&background=transparent" alt="Joe Qai" class="avatar">
             <h1>Joe Qai</h1>
             <p class="title">Software Test Engineer | Automation Expert | Open Source Contributor</p>
             <div class="social-links">
