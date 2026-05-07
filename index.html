@@ -174,35 +174,83 @@
             height: 18px;
         }
 
-        /* QR Code Float */
-        .qrcode-float {
+        /* WeChat Float Button */
+        .wechat-btn {
             position: fixed;
             right: 16px;
             bottom: 24px;
             z-index: 1000;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 12px;
-            text-align: center;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #07C160, #10B981);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(7, 193, 96, 0.4);
+            cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .qrcode-float:hover {
-            border-color: var(--accent-python);
-            transform: translateY(-4px);
+        .wechat-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(7, 193, 96, 0.5);
+        }
+
+        .wechat-btn img {
+            width: 28px;
+            height: 28px;
+        }
+
+        /* QR Code Modal */
+        .qrcode-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qrcode-overlay.active {
+            display: flex;
+        }
+
+        .qrcode-modal {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: modalIn 0.3s ease;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .qrcode-img {
-            width: 100px;
-            height: 100px;
+            width: 180px;
+            height: 180px;
             border-radius: var(--radius-sm);
-            margin-bottom: 6px;
+            margin-bottom: 12px;
         }
 
         .qrcode-label {
-            font-size: 0.75rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
             margin: 0;
         }
@@ -556,10 +604,17 @@
         </footer>
     </div>
 
-    <!-- QR Code Float -->
-    <div class="qrcode-float">
-        <img src="qroder.jpg" alt="公众号二维码" class="qrcode-img">
-        <p class="qrcode-label">扫码关注公众号</p>
+    <!-- WeChat Button -->
+    <button class="wechat-btn" id="wechatBtn">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="WeChat">
+    </button>
+
+    <!-- QR Code Modal -->
+    <div class="qrcode-overlay" id="qrcodeOverlay">
+        <div class="qrcode-modal">
+            <img src="qroder.jpg" alt="公众号二维码" class="qrcode-img">
+            <p class="qrcode-label">长按识别二维码</p>
+        </div>
     </div>
 
     <script>
@@ -823,7 +878,25 @@
             });
         };
 
-        document.addEventListener('DOMContentLoaded', renderProjects);
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProjects();
+            
+            // WeChat QR Code Modal
+            const wechatBtn = document.getElementById('wechatBtn');
+            const qrcodeOverlay = document.getElementById('qrcodeOverlay');
+            const qrcodeModal = document.querySelector('.qrcode-modal');
+
+            wechatBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                qrcodeOverlay.classList.add('active');
+            });
+
+            qrcodeOverlay.addEventListener('click', (e) => {
+                if (e.target === qrcodeOverlay) {
+                    qrcodeOverlay.classList.remove('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
