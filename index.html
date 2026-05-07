@@ -174,6 +174,40 @@
             height: 18px;
         }
 
+        /* QR Code */
+        .qrcode-section {
+            margin-top: 32px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .qrcode-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .qrcode-card:hover {
+            border-color: var(--accent-python);
+            transform: translateY(-2px);
+        }
+
+        .qrcode-img {
+            width: 120px;
+            height: 120px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 8px;
+        }
+
+        .qrcode-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
         /* Stats */
         .stats {
             display: grid;
@@ -470,7 +504,7 @@
 
             <div class="avatar-wrapper">
                 <div class="avatar-ring"></div>
-                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=engineer-joe&eyes=happy&mouth=smile&hair=short&accessories=roundGlasses&background=transparent" alt="Joe Qai" class="avatar">
+                <img src="https://neeko-copilot.bytedance.net/api/text_to_image?prompt=professional%20male%20software%20developer%20portrait%20avatar%20clean%20background%20minimalist&image_size=square" alt="Joe Qai" class="avatar">
             </div>
 
             <h1>Joe <span>Qai</span></h1>
@@ -481,14 +515,17 @@
                     <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
                     GitHub
                 </a>
-                <a href="https://linkedin.com" target="_blank">
-                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
-                    LinkedIn
+                <a href="https://blog.csdn.net/u011466469?spm=1000.2115.3001.5343" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1051/1051277.png" alt="CSDN">
+                    CSDN
                 </a>
-                <a href="mailto:joe.qai@example.com">
-                    <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Email">
-                    Email
-                </a>
+            </div>
+
+            <div class="qrcode-section">
+                <div class="qrcode-card">
+                    <img src="qroder.jpg" alt="公众号二维码" class="qrcode-img">
+                    <p class="qrcode-label">扫码关注公众号</p>
+                </div>
             </div>
         </header>
 
