@@ -174,6 +174,26 @@
             height: 18px;
         }
 
+        .social-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .social-btn:hover {
+            border-color: #07C160;
+            color: #07C160;
+            transform: translateY(-2px);
+        }
+
         /* WeChat Float Button */
         .wechat-btn {
             position: fixed;
@@ -566,6 +586,10 @@
                     <img src="https://cdn-icons-png.flaticon.com/512/1051/1051277.png" alt="CSDN">
                     CSDN
                 </a>
+                <button class="social-btn wechat-btn-inline" id="wechatBtn">
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="WeChat">
+                    <span>微信</span>
+                </button>
             </div>
         </header>
 
@@ -592,7 +616,7 @@
         <!-- Projects Section -->
         <section class="projects-section">
             <div class="section-header">
-                <h2 class="section-title">Featured Projects <span>/ 24</span></h2>
+                <h2 class="section-title">Featured Projects <span>/ 20</span></h2>
             </div>
             <div id="projects-grid" class="projects-grid">
             </div>
@@ -604,11 +628,6 @@
         </footer>
     </div>
 
-    <!-- WeChat Button -->
-    <button class="wechat-btn" id="wechatBtn">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="WeChat">
-    </button>
-
     <!-- QR Code Modal -->
     <div class="qrcode-overlay" id="qrcodeOverlay">
         <div class="qrcode-modal">
@@ -619,6 +638,46 @@
 
     <script>
         const projects = [
+            {
+                name: 'testgen',
+                description: '基于 Flask 的 AI 驱动测试用例生成平台，利用 LLM 和 RAG 技术自动生成高质量测试用例。',
+                language: 'Python',
+                stars: 1,
+                forks: 1,
+                url: 'https://github.com/joe-qai/testgen'
+            },
+            {
+                name: 'ai_appium_po',
+                description: '企业级 App 自动化测试框架，采用 Page Object (PO) 设计模式，集成 Appium、pytest 与 Allure Report。',
+                language: 'Python',
+                stars: 0,
+                forks: 0,
+                url: 'https://github.com/joe-qai/ai_appium_po'
+            },
+            {
+                name: 'testing_skills',
+                description: '软件测试工具集，提供需求分析、测试规划、测试用例生成等功能，模块化设计可单独使用。',
+                language: 'Python',
+                stars: 3,
+                forks: 1,
+                url: 'https://github.com/joe-qai/testing_skills'
+            },
+            {
+                name: 'httprunner_swagger',
+                description: '使用 Python 3 解析 Swagger2.x 接口文档，自动生成多种格式的数据文件。',
+                language: 'Python',
+                stars: 56,
+                forks: 34,
+                url: 'https://github.com/joe-qai/httprunner_swagger'
+            },
+            {
+                name: 'superpowers-cn',
+                description: 'Superpowers 中文教程，帮助开发者快速上手这个强大的开发引擎。',
+                language: 'HTML',
+                stars: 1,
+                forks: 0,
+                url: 'https://github.com/joe-qai/superpowers-cn'
+            },
             {
                 name: 'CucumberDriver',
                 description: '基于 Selenium 和 Cucumber 的 BDD 行为驱动测试框架，支持使用自然语言描述测试用例，集成 Extent Report 报告生成。',
@@ -660,38 +719,6 @@
                 url: 'https://github.com/joe-qai/javaSeleniumDemo'
             },
             {
-                name: 'ai_appium_po',
-                description: '企业级 App 自动化测试框架，采用 Page Object (PO) 设计模式，集成 Appium、pytest 与 Allure Report。',
-                language: 'Python',
-                stars: 0,
-                forks: 0,
-                url: 'https://github.com/joe-qai/ai_appium_po'
-            },
-            {
-                name: 'testing_skills',
-                description: '软件测试工具集，提供需求分析、测试规划、测试用例生成等功能，模块化设计可单独使用。',
-                language: 'Python',
-                stars: 3,
-                forks: 1,
-                url: 'https://github.com/joe-qai/testing_skills'
-            },
-            {
-                name: 'superpowers-cn',
-                description: 'Superpowers 中文教程，帮助开发者快速上手这个强大的开发引擎。',
-                language: 'HTML',
-                stars: 1,
-                forks: 0,
-                url: 'https://github.com/joe-qai/superpowers-cn'
-            },
-            {
-                name: 'testgen',
-                description: '基于 Flask 的 AI 驱动测试用例生成平台，利用 LLM 和 RAG 技术自动生成高质量测试用例。',
-                language: 'Python',
-                stars: 1,
-                forks: 1,
-                url: 'https://github.com/joe-qai/testgen'
-            },
-            {
                 name: 'UIUX-Pro-Max-CN',
                 description: 'UI/UX Pro Max 技能库官方中文教程，完整翻译并本地化了原始 README 内容。',
                 language: 'HTML',
@@ -722,14 +749,6 @@
                 stars: 0,
                 forks: 0,
                 url: 'https://github.com/joe-qai/XMind2TestCase'
-            },
-            {
-                name: 'httprunner_swagger',
-                description: '使用 Python 3 解析 Swagger2.x 接口文档，自动生成多种格式的数据文件。',
-                language: 'Python',
-                stars: 56,
-                forks: 34,
-                url: 'https://github.com/joe-qai/httprunner_swagger'
             },
             {
                 name: 'My_Python_Examples',
