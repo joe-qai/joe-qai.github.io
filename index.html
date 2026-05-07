@@ -3,23 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Joe Qai - Software Test Engineer</title>
-    <!-- Open Graph for Sharing -->
-    <meta property="og:title" content="Joe Qai | Software Test Engineer & Open Source Contributor">
-    <meta property="og:description" content="专注于自动化测试、AI测试和开源项目贡献。拥有24+个GitHub项目，涵盖Python、Java、Web自动化等技术领域。">
-    <meta property="og:image" content="https://neeko-copilot.bytedance.net/api/text2image?prompt=professional%20software%20developer%20profile%20banner%20with%20code%20icons%20and%20tech%20elements%20dark%20blue%20gradient%20background&image_size=landscape_16_9">
+    <title>Joe Qai | Python Developer & Automation Expert</title>
+    <!-- Open Graph -->
+    <meta property="og:title" content="Joe Qai | Python Developer & Automation Expert">
+    <meta property="og:description" content="Software Test Engineer specializing in Python automation, AI testing, and open source contributions.">
+    <meta property="og:image" content="https://neeko-copilot.bytedance.net/api/text2image?prompt=python%20programming%20code%20editor%20dark%20theme%20with%20snake%20logo%20and%20terminal%20interface&image_size=landscape_16_9">
     <meta property="og:url" content="https://joe-qai.github.io">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Joe Qai">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Joe Qai | Software Test Engineer">
-    <meta name="twitter:description" content="专注于自动化测试、AI测试和开源项目贡献">
-    <meta name="twitter:image" content="https://neeko-copilot.bytedance.net/api/text2image?prompt=professional%20software%20developer%20profile%20banner%20with%20code%20icons%20and%20tech%20elements%20dark%20blue%20gradient%20background&image_size=landscape_16_9">
-    <!-- WeChat Share -->
-    <meta name="description" content="Joe Qai 的个人主页 - 软件测试工程师，专注于自动化测试、AI测试和开源项目贡献">
-    <meta name="keywords" content="software testing, automation, Python, Java, open source, test engineer">
+    <meta name="twitter:title" content="Joe Qai | Python Developer">
+    <meta name="twitter:description" content="Python automation specialist with 24+ GitHub projects">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #3776AB;
+            --primary-light: #4A90C2;
+            --accent: #FFD43B;
+            --accent-dark: #F0C000;
+            --bg-dark: #0D1117;
+            --bg-card: #161B22;
+            --bg-card-hover: #21262D;
+            --border: #30363D;
+            --text-primary: #E6EDF3;
+            --text-secondary: #8B949E;
+            --text-muted: #6E7681;
+            --success: #3FB950;
+            --warning: #D29922;
+            --font-mono: 'Fira Code', 'Consolas', monospace;
+            --font-sans: 'Inter', system-ui, sans-serif;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -31,17 +48,17 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            min-height: 100vh;
-            color: #ffffff;
+            font-family: var(--font-sans);
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
             line-height: 1.6;
+            min-height: 100vh;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
             padding: 0 16px;
         }
@@ -50,33 +67,110 @@
         header {
             padding: 60px 0 40px;
             text-align: center;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .terminal-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background: var(--bg-card);
+            border-radius: 8px 8px 0 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #FF5F56;
+        }
+
+        .terminal-dot:nth-child(2) { background: #FFBD2E; }
+        .terminal-dot:nth-child(3) { background: #27C93F; }
+
+        .terminal-title {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-left: 12px;
+        }
+
+        .code-window {
+            background: #010409;
+            border-radius: 0 0 12px 12px;
+            padding: 24px;
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid var(--border);
+            border-top: none;
+        }
+
+        .code-line {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        .code-comment { color: var(--text-muted); }
+        .code-keyword { color: #FF7B72; }
+        .code-string { color: #A5D6FF; }
+        .code-function { color: #D2A8FF; }
+        .code-variable { color: #FFA657; }
+        .code-number { color: #79C0FF; }
+        .code-operator { color: #FF7B72; }
+
+        .cursor {
+            animation: blink 1s infinite;
+            background: var(--primary);
+            width: 8px;
+            height: 18px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
         }
 
         .avatar {
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            border: 3px solid #4a90d9;
+            border: 2px solid var(--primary);
             margin-bottom: 16px;
-            box-shadow: 0 0 20px rgba(74, 144, 217, 0.5);
+            box-shadow: 0 0 20px rgba(55, 118, 171, 0.3);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
         }
 
         h1 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 8px;
-            background: linear-gradient(90deg, #4a90d9, #67b8f5);
+            background: linear-gradient(90deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .title {
-            color: #a0aec0;
+            color: var(--text-secondary);
             font-size: 0.95rem;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
+            font-family: var(--font-mono);
         }
 
         .social-links {
@@ -90,37 +184,38 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            color: #a0aec0;
+            color: var(--text-secondary);
             text-decoration: none;
             padding: 8px 16px;
-            border-radius: 24px;
-            background: rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
             font-size: 0.85rem;
         }
 
         .social-links a:hover {
-            background: rgba(74, 144, 217, 0.2);
-            color: #4a90d9;
-            transform: translateY(-2px);
+            background: var(--bg-card-hover);
+            border-color: var(--primary);
+            color: var(--text-primary);
+            transform: translateY(-1px);
         }
 
         .social-links img {
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
         }
 
         /* Stats */
         .stats {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
+            gap: 12px;
             margin: 32px 0;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border);
         }
 
         .stat-item {
@@ -129,15 +224,16 @@
         }
 
         .stat-value {
+            font-family: var(--font-mono);
             font-size: 1.5rem;
             font-weight: 700;
-            color: #4a90d9;
+            color: var(--accent);
             display: block;
         }
 
         .stat-label {
-            font-size: 0.8rem;
-            color: #a0aec0;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
             margin-top: 4px;
             display: block;
         }
@@ -148,51 +244,50 @@
         }
 
         .section-title {
-            text-align: center;
-            font-size: 1.5rem;
-            margin-bottom: 32px;
-            position: relative;
-            padding-bottom: 12px;
+            font-size: 1.3rem;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
         }
 
-        .section-title::after {
+        .section-title::before {
             content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 2px;
-            background: linear-gradient(90deg, #4a90d9, #67b8f5);
+            width: 4px;
+            height: 20px;
+            background: linear-gradient(180deg, var(--primary), var(--accent));
             border-radius: 2px;
         }
 
         .projects-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 20px;
+            gap: 16px;
         }
 
         .project-card {
-            background: rgba(255, 255, 255, 0.04);
+            background: var(--bg-card);
             border-radius: 12px;
             padding: 20px;
+            border: 1px solid var(--border);
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-        }
-
-        .project-card:active {
-            transform: scale(0.98);
+            cursor: pointer;
         }
 
         .project-card:hover {
-            background: rgba(255, 255, 255, 0.07);
-            border-color: rgba(74, 144, 217, 0.3);
+            border-color: var(--primary);
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+        }
+
+        .project-card:active {
+            transform: translateY(-1px);
         }
 
         .project-header {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 12px;
             margin-bottom: 12px;
         }
@@ -200,7 +295,7 @@
         .project-icon {
             width: 40px;
             height: 40px;
-            border-radius: 10px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -209,19 +304,19 @@
         }
 
         .project-icon.python {
-            background: linear-gradient(135deg, #3776AB, #FFD43B);
-        }
-
-        .project-icon.html {
-            background: linear-gradient(135deg, #E34F26, #F06529);
+            background: linear-gradient(135deg, var(--primary), #4A90C2);
         }
 
         .project-icon.java {
             background: linear-gradient(135deg, #ED8B00, #5382A1);
         }
 
+        .project-icon.html {
+            background: linear-gradient(135deg, #E34F26, #F06529);
+        }
+
         .project-icon.markdown {
-            background: linear-gradient(135deg, #000000, #343434);
+            background: linear-gradient(135deg, #000, #343434);
         }
 
         .project-icon.xslt {
@@ -234,9 +329,10 @@
         }
 
         .project-info h3 {
-            font-size: 1.05rem;
+            font-size: 1rem;
             margin-bottom: 2px;
-            color: #ffffff;
+            color: var(--text-primary);
+            font-weight: 600;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -244,14 +340,15 @@
 
         .project-info .language {
             font-size: 0.75rem;
-            color: #a0aec0;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
         }
 
         .project-description {
-            color: #a0aec0;
+            color: var(--text-secondary);
             font-size: 0.85rem;
             line-height: 1.5;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
@@ -263,7 +360,7 @@
             justify-content: space-between;
             align-items: center;
             padding-top: 12px;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-top: 1px solid var(--border);
         }
 
         .project-stats {
@@ -275,39 +372,42 @@
             display: flex;
             align-items: center;
             gap: 4px;
-            color: #a0aec0;
+            color: var(--text-muted);
             font-size: 0.75rem;
+            font-family: var(--font-mono);
         }
 
         .stat img {
             width: 14px;
             height: 14px;
+            opacity: 0.7;
         }
 
         .project-link {
-            color: #4a90d9;
+            color: var(--primary);
             text-decoration: none;
             font-size: 0.8rem;
-            padding: 6px 12px;
-            border-radius: 16px;
-            background: rgba(74, 144, 217, 0.1);
-            transition: all 0.3s ease;
-            white-space: nowrap;
+            padding: 4px 12px;
+            border-radius: 4px;
+            background: rgba(55, 118, 171, 0.1);
+            border: 1px solid rgba(55, 118, 171, 0.3);
+            transition: all 0.2s ease;
+            font-family: var(--font-mono);
         }
 
         .project-link:hover {
-            background: rgba(74, 144, 217, 0.2);
-            color: #67b8f5;
+            background: rgba(55, 118, 171, 0.2);
+            color: var(--primary-light);
         }
 
         /* Footer */
         footer {
             text-align: center;
             padding: 32px 0;
-            color: #a0aec0;
+            color: var(--text-muted);
             font-size: 0.8rem;
-            background: rgba(0, 0, 0, 0.3);
             margin-top: 40px;
+            border-top: 1px solid var(--border);
         }
 
         /* Desktop Responsive */
@@ -326,43 +426,37 @@
             }
 
             h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
 
             .title {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
 
             .stats {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 32px;
-                padding: 30px;
+                gap: 24px;
+                padding: 24px;
             }
 
             .stat-value {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             .stat-label {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
             }
 
             .projects-grid {
                 grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-                gap: 24px;
+                gap: 20px;
             }
 
             .project-card {
                 padding: 24px;
             }
 
-            .project-card:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            }
-
             .project-info h3 {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
 
             .project-description {
@@ -370,24 +464,51 @@
             }
 
             .section-title {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
+            }
+
+            .code-window {
+                padding: 32px;
+            }
+
+            .code-line {
+                font-size: 1rem;
             }
         }
 
         @media (min-width: 1024px) {
             .projects-grid {
                 grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-                gap: 30px;
+                gap: 24px;
             }
         }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .project-card {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .project-card:nth-child(1) { animation-delay: 0.1s; opacity: 0; }
+        .project-card:nth-child(2) { animation-delay: 0.15s; opacity: 0; }
+        .project-card:nth-child(3) { animation-delay: 0.2s; opacity: 0; }
+        .project-card:nth-child(4) { animation-delay: 0.25s; opacity: 0; }
+        .project-card:nth-child(5) { animation-delay: 0.3s; opacity: 0; }
+        .project-card:nth-child(6) { animation-delay: 0.35s; opacity: 0; }
 
         /* Touch optimizations */
         @media (hover: none) {
             .project-card:hover {
-                transform: none;
-            }
-            
-            .social-links a:hover {
                 transform: none;
             }
         }
@@ -397,15 +518,54 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=engineer-joe&eyes=happy&mouth=smile&hair=short&accessories=roundGlasses&facialHair=none&background=transparent" alt="Joe Qai" class="avatar">
+            <div class="terminal-header">
+                <div class="terminal-bar">
+                    <div class="terminal-dot"></div>
+                    <div class="terminal-dot"></div>
+                    <div class="terminal-dot"></div>
+                    <span class="terminal-title">joe@dev:~</span>
+                </div>
+            </div>
+            <div class="code-window">
+                <div class="code-line">
+                    <span class="code-comment"># Hi, I'm Joe Qai</span>
+                </div>
+                <div class="code-line">
+                    <span class="code-keyword">def</span> <span class="code-function">who_am_i</span><span class="code-operator">(</span><span class="code-operator">):</span>
+                </div>
+                <div class="code-line">
+                    <span class="code-keyword">    </span><span class="code-variable">name</span> <span class="code-operator">=</span> <span class="code-string">"Joe Qai"</span>
+                </div>
+                <div class="code-line">
+                    <span class="code-keyword">    </span><span class="code-variable">role</span> <span class="code-operator">=</span> <span class="code-string">"Software Test Engineer"</span>
+                </div>
+                <div class="code-line">
+                    <span class="code-keyword">    </span><span class="code-variable">specialty</span> <span class="code-operator">=</span> <span class="code-string">"Python Automation | AI Testing"</span>
+                </div>
+                <div class="code-line">
+                    <span class="code-keyword">    </span><span class="code-keyword">return</span> <span class="code-variable">name</span><span class="code-operator">, </span><span class="code-variable">role</span><span class="code-operator">, </span><span class="code-variable">specialty</span>
+                </div>
+                <div class="code-line"></div>
+                <div class="code-line">
+                    <span class="code-variable">result</span> <span class="code-operator">=</span> <span class="code-function">who_am_i</span><span class="code-operator">()</span>
+                </div>
+                <div class="code-line">
+                    <span class="code-comment"># >>> ('Joe Qai', 'Software Test Engineer', 'Python Automation | AI Testing')</span>
+                </div>
+                <div class="code-line">
+                    <span class="code-comment"># >>> </span><span class="cursor"></span>
+                </div>
+            </div>
+
             <h1>Joe Qai</h1>
-            <p class="title">Software Test Engineer | Automation Expert | Open Source Contributor</p>
+            <p class="title">@software-test-engineer | Python Automation Specialist</p>
+            
             <div class="social-links">
                 <a href="https://github.com/joe-qai" target="_blank">
                     <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
                     GitHub
                 </a>
-                <a href="https://www.linkedin.com" target="_blank">
+                <a href="https://linkedin.com" target="_blank">
                     <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
                     LinkedIn
                 </a>
@@ -419,263 +579,239 @@
         <!-- Stats -->
         <div class="stats">
             <div class="stat-item">
-                <div class="stat-value">24</div>
-                <div class="stat-label">Projects</div>
+                <span class="stat-value">24</span>
+                <span class="stat-label">Projects</span>
             </div>
             <div class="stat-item">
-                <div class="stat-value">65</div>
-                <div class="stat-label">Stars</div>
+                <span class="stat-value">65</span>
+                <span class="stat-label">Stars</span>
             </div>
             <div class="stat-item">
-                <div class="stat-value">38</div>
-                <div class="stat-label">Forks</div>
+                <span class="stat-value">38</span>
+                <span class="stat-label">Forks</span>
             </div>
             <div class="stat-item">
-                <div class="stat-value">6+</div>
-                <div class="stat-label">Years</div>
+                <span class="stat-value">6+</span>
+                <span class="stat-label">Years</span>
             </div>
         </div>
 
         <!-- Projects Section -->
         <section class="projects-section">
             <h2 class="section-title">My Projects</h2>
-            <div class="projects-grid" id="projects-grid">
-                <!-- Projects will be dynamically loaded here -->
+            <div id="projects-grid" class="projects-grid">
             </div>
         </section>
-    </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Joe Qai. All rights reserved.</p>
-    </footer>
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Joe Qai. Built with Python & GitHub Pages.</p>
+        </footer>
+    </div>
 
     <script>
         const projects = [
             {
                 name: 'ai_appium_po',
-                description: '🏆 企业级 App 自动化测试框架，采用 Page Object (PO) 设计模式，集成 Appium、pytest 与 Allure Report，支持 Native 原生控件与 WebView 混合应用的自动化测试。',
+                description: '企业级 App 自动化测试框架，采用 Page Object (PO) 设计模式，集成 Appium、pytest 与 Allure Report。',
                 language: 'Python',
                 stars: 0,
                 forks: 0,
-                url: 'https://github.com/joe-qai/ai_appium_po',
-                updated: '2026-05-07'
+                url: 'https://github.com/joe-qai/ai_appium_po'
             },
             {
                 name: 'testing_skills',
-                description: '🎯 软件测试工具集，提供需求分析、测试规划、测试用例生成等功能。支持从多种文档格式提取信息，基于测试理论生成结构化测试文档，模块化设计可单独使用。',
+                description: '软件测试工具集，提供需求分析、测试规划、测试用例生成等功能，模块化设计可单独使用。',
                 language: 'Python',
                 stars: 3,
                 forks: 1,
-                url: 'https://github.com/joe-qai/testing_skills',
-                updated: '2026-05-01'
+                url: 'https://github.com/joe-qai/testing_skills'
             },
             {
                 name: 'testgen',
-                description: '🤖 基于 Flask 的 AI 驱动测试用例生成平台，利用 LLM 和 RAG 技术自动从需求文档生成高质量测试用例，提供完整的测试用例管理工作流。',
+                description: '基于 Flask 的 AI 驱动测试用例生成平台，利用 LLM 和 RAG 技术自动生成高质量测试用例。',
                 language: 'Python',
                 stars: 1,
                 forks: 1,
-                url: 'https://github.com/joe-qai/testgen',
-                updated: '2026-04-29'
+                url: 'https://github.com/joe-qai/testgen'
             },
             {
                 name: 'httprunner_swagger',
-                description: '📊 使用 Python 3 解析 Swagger2.x 接口文档，自动生成 JSON、YAML、CSV、XLSX 格式的数据文件，助力接口自动化测试。',
+                description: '使用 Python 3 解析 Swagger2.x 接口文档，自动生成多种格式的数据文件，助力接口自动化测试。',
                 language: 'Python',
                 stars: 56,
                 forks: 34,
-                url: 'https://github.com/joe-qai/httprunner_swagger',
-                updated: '2023-05-22'
+                url: 'https://github.com/joe-qai/httprunner_swagger'
             },
             {
                 name: 'pymobiledevice3-wrapper',
-                description: '📱 pymobiledevice3 的封装工具，简化 iOS 设备自动化测试和调试操作，让移动设备管理更加便捷高效。',
+                description: 'pymobiledevice3 的封装工具，简化 iOS 设备自动化测试和调试操作。',
                 language: 'Python',
                 stars: 0,
                 forks: 0,
-                url: 'https://github.com/joe-qai/pymobiledevice3-wrapper',
-                updated: '2024-07-02'
+                url: 'https://github.com/joe-qai/pymobiledevice3-wrapper'
             },
             {
                 name: 'XMind2TestCase',
-                description: '🔄 基于 Python 实现的 XMind 转测试用例工具，提供高效测试用例设计解决方案，支持从思维导图快速生成测试用例。',
+                description: '基于 Python 实现的 XMind 转测试用例工具，支持从思维导图快速生成测试用例。',
                 language: 'Python',
                 stars: 0,
                 forks: 0,
-                url: 'https://github.com/joe-qai/XMind2TestCase',
-                updated: '2023-09-26'
+                url: 'https://github.com/joe-qai/XMind2TestCase'
             },
             {
                 name: 'My_Python_Examples',
-                description: '� 个人 Python 学习示例集，包含各种 Python 技术实践案例，适合学习和参考。',
+                description: '个人 Python 学习示例集，包含各种 Python 技术实践案例。',
                 language: 'Python',
                 stars: 0,
                 forks: 0,
-                url: 'https://github.com/joe-qai/My_Python_Examples',
-                updated: '2022-06-23'
+                url: 'https://github.com/joe-qai/My_Python_Examples'
             },
             {
                 name: 'yiqing',
-                description: '📈 疫情数据分析项目，提供疫情数据可视化和分析功能，助力疫情数据追踪与研究。',
+                description: '疫情数据分析项目，提供疫情数据可视化和分析功能，助力疫情数据追踪与研究。',
                 language: 'Python',
                 stars: 0,
                 forks: 0,
-                url: 'https://github.com/joe-qai/yiqing',
-                updated: '2022-10-18'
+                url: 'https://github.com/joe-qai/yiqing'
             },
             {
                 name: 'flask_web',
-                description: '🌱 基于 Flask 框架的 Web 开发入门项目，适合学习 Flask 框架的基础知识和 Web 开发实践。',
+                description: '基于 Flask 框架的 Web 开发入门项目，适合学习 Flask 框架的基础知识。',
                 language: 'Python',
                 stars: 0,
                 forks: 0,
-                url: 'https://github.com/joe-qai/flask_web',
-                updated: '2021-07-22'
-            },
-            {
-                name: 'Python_Test',
-                description: '� Python 测试工具集合，包含 MockServer 实现、Swagger 接口文档解析、爬虫和测试数据构造等功能。',
-                language: 'HTML',
-                stars: 0,
-                forks: 0,
-                url: 'https://github.com/joe-qai/Python_Test',
-                updated: '2021-09-14'
-            },
-            {
-                name: 'selenium_keywords_by_python3',
-                description: '🔑 Selenium 关键字封装框架，通过映射实现驱动执行测试用例，支持 @property 应用和 PyInstaller 打包生成 exe。',
-                language: 'Python',
-                stars: 0,
-                forks: 0,
-                url: 'https://github.com/joe-qai/selenium_keywords_by_python3',
-                updated: '2021-09-14'
-            },
-            {
-                name: 'SpringBootSwagger',
-                description: '☕ SpringBoot 作为 MockServer 后台，结合 Swagger 自动生成接口文档，为 Java 接口测试实战提供完整依赖方案。',
-                language: 'Java',
-                stars: 0,
-                forks: 0,
-                url: 'https://github.com/joe-qai/SpringBootSwagger',
-                updated: '2021-09-14'
-            },
-            {
-                name: 'autoMsg',
-                description: '💬 QQ 自动消息发送工具，支持调用 QQ 接口自动发送消息给好友，实现消息自动化推送。',
-                language: 'Java',
-                stars: 2,
-                forks: 1,
-                url: 'https://github.com/joe-qai/autoMsg',
-                updated: '2019-05-13'
-            },
-            {
-                name: 'javaSeleniumDemo',
-                description: '☕ Java 编程基础学习项目，包含 Set 集合、流程控制、Selenium 框架及面试题练习。',
-                language: 'Java',
-                stars: 0,
-                forks: 0,
-                url: 'https://github.com/joe-qai/javaSeleniumDemo',
-                updated: '2026-05-07'
-            },
-            {
-                name: 'selenium_pom_demo',
-                description: '🧪 Java 版 WEB 自动化测试框架，采用 PO 思想与 PageFactory 设计模式，适用于企业级 UI 自动化测试。',
-                language: 'Java',
-                stars: 0,
-                forks: 0,
-                url: 'https://github.com/joe-qai/selenium_pom_demo',
-                updated: '2021-09-16'
-            },
-            {
-                name: 'jmeter_maven_demo',
-                description: '⚡ JMeter 接口自动化测试框架，选用 Maven 作为构建工具，支持 CLI 与 Jenkins 持续集成，提供数据驱动和关键字驱动模板。',
-                language: 'XSLT',
-                stars: 0,
-                forks: 0,
-                url: 'https://github.com/joe-qai/jmeter_maven_demo',
-                updated: '2021-09-14'
-            },
-            {
-                name: 'superpowers-cn',
-                description: '� Superpowers 中文学习网页，帮助中文开发者快速上手这个强大的 HTML5 游戏引擎。',
-                language: 'HTML',
-                stars: 1,
-                forks: 0,
-                url: 'https://github.com/joe-qai/superpowers-cn',
-                updated: '2026-04-29'
-            },
-            {
-                name: 'UIUX-Pro-Max-CN',
-                description: '� UI/UX Pro Max 技能库官方中文教程，完整翻译并本地化了原始 README 内容，帮助中文开发者学习 AI 设计技能。',
-                language: 'HTML',
-                stars: 0,
-                forks: 0,
-                url: 'https://github.com/joe-qai/UIUX-Pro-Max-CN',
-                updated: '2026-01-02'
-            },
-            {
-                name: 'CucumberDriver',
-                description: '🧪 Selenium 与 Cucumber 行为驱动测试框架，支持 BDD 风格的自动化测试，实现测试用例的自然语言描述。',
-                language: 'HTML',
-                stars: 0,
-                forks: 0,
-                url: 'https://github.com/joe-qai/CucumberDriver',
-                updated: '2022-05-20'
-            },
-            {
-                name: 'SpareFoodShare',
-                description: '🍽️ 基于 Django 的公益项目，用于分享剩余食物、减少食物浪费，促进社区互助共享。',
-                language: 'HTML',
-                stars: 0,
-                forks: 0,
-                url: 'https://github.com/joe-qai/SpareFoodShare',
-                updated: '2022-05-11'
-            },
-            {
-                name: 'build-your-own-x',
-                description: '🔨 通过从零开始重建您喜欢的技术来掌握编程，深入理解底层原理和实现机制。',
-                language: 'Markdown',
-                stars: 0,
-                forks: 0,
-                url: 'https://github.com/joe-qai/build-your-own-x',
-                updated: '2025-04-11'
+                url: 'https://github.com/joe-qai/flask_web'
             },
             {
                 name: 'Locusts',
-                description: '📊 Locust 性能测试框架学习项目，包含压力测试实践示例，帮助开发者掌握性能测试技能。',
+                description: 'Locust 性能测试框架学习项目，包含压力测试实践示例。',
                 language: 'Python',
                 stars: 0,
                 forks: 0,
-                url: 'https://github.com/joe-qai/Locusts',
-                updated: '2020-08-12'
+                url: 'https://github.com/joe-qai/Locusts'
             },
             {
                 name: 'python-crawler',
-                description: '🕷️ Python 爬虫实战项目，模拟登录各大网站，包含滑块验证、拼多多、美团、百度、bilibili、大众点评、淘宝等网站的登录实现。',
+                description: 'Python 爬虫实战项目，模拟登录各大网站，包含滑块验证等高级技术。',
                 language: 'Python',
                 stars: 0,
                 forks: 0,
-                url: 'https://github.com/joe-qai/python-crawler',
-                updated: '2020-07-24'
+                url: 'https://github.com/joe-qai/python-crawler'
             },
             {
-                name: 'extentreports-java',
-                description: '📊 Extent API for Java 的社区版本，提供丰富的测试报告生成功能，支持多种报告格式输出。',
+                name: 'selenium_keywords_by_python3',
+                description: 'Selenium 关键字封装框架，通过映射实现驱动执行测试用例。',
+                language: 'Python',
+                stars: 0,
+                forks: 0,
+                url: 'https://github.com/joe-qai/selenium_keywords_by_python3'
+            },
+            {
+                name: 'Python_Test',
+                description: 'Python 测试工具集合，包含 MockServer 实现、Swagger 解析、爬虫等功能。',
+                language: 'HTML',
+                stars: 0,
+                forks: 0,
+                url: 'https://github.com/joe-qai/Python_Test'
+            },
+            {
+                name: 'javaSeleniumDemo',
+                description: 'Java 编程基础学习项目，包含 Set 集合、流程控制、Selenium 框架及面试题练习。',
                 language: 'Java',
                 stars: 0,
                 forks: 0,
-                url: 'https://github.com/joe-qai/extentreports-java',
-                updated: '2020-07-17'
+                url: 'https://github.com/joe-qai/javaSeleniumDemo'
+            },
+            {
+                name: 'SpringBootSwagger',
+                description: 'SpringBoot 作为 MockServer 后台，结合 Swagger 自动生成接口文档。',
+                language: 'Java',
+                stars: 0,
+                forks: 0,
+                url: 'https://github.com/joe-qai/SpringBootSwagger'
+            },
+            {
+                name: 'autoMsg',
+                description: 'QQ 自动消息发送工具，支持调用 QQ 接口自动发送消息给好友。',
+                language: 'Java',
+                stars: 2,
+                forks: 1,
+                url: 'https://github.com/joe-qai/autoMsg'
+            },
+            {
+                name: 'extentreports-java',
+                description: 'Extent API for Java 的社区版本，提供丰富的测试报告生成功能。',
+                language: 'Java',
+                stars: 0,
+                forks: 0,
+                url: 'https://github.com/joe-qai/extentreports-java'
+            },
+            {
+                name: 'selenium_pom_demo',
+                description: 'Java 版 WEB 自动化测试框架，采用 PO 思想与 PageFactory 设计模式。',
+                language: 'Java',
+                stars: 0,
+                forks: 0,
+                url: 'https://github.com/joe-qai/selenium_pom_demo'
+            },
+            {
+                name: 'jmeter_maven_demo',
+                description: 'JMeter 接口自动化测试框架，选用 Maven 作为构建工具，支持 CI/CD 集成。',
+                language: 'XSLT',
+                stars: 0,
+                forks: 0,
+                url: 'https://github.com/joe-qai/jmeter_maven_demo'
+            },
+            {
+                name: 'superpowers-cn',
+                description: 'Superpowers 中文学习网页，帮助中文开发者快速上手这个强大的 HTML5 游戏引擎。',
+                language: 'HTML',
+                stars: 1,
+                forks: 0,
+                url: 'https://github.com/joe-qai/superpowers-cn'
+            },
+            {
+                name: 'UIUX-Pro-Max-CN',
+                description: 'UI/UX Pro Max 技能库官方中文教程，完整翻译并本地化了原始 README 内容。',
+                language: 'HTML',
+                stars: 0,
+                forks: 0,
+                url: 'https://github.com/joe-qai/UIUX-Pro-Max-CN'
+            },
+            {
+                name: 'CucumberDriver',
+                description: 'Selenium 与 Cucumber 行为驱动测试框架，支持 BDD 风格的自动化测试。',
+                language: 'HTML',
+                stars: 0,
+                forks: 0,
+                url: 'https://github.com/joe-qai/CucumberDriver'
+            },
+            {
+                name: 'SpareFoodShare',
+                description: '基于 Django 的公益项目，用于分享剩余食物、减少食物浪费，促进社区互助共享。',
+                language: 'HTML',
+                stars: 0,
+                forks: 0,
+                url: 'https://github.com/joe-qai/SpareFoodShare'
+            },
+            {
+                name: 'build-your-own-x',
+                description: '通过从零开始重建您喜欢的技术来掌握编程，深入理解底层原理和实现机制。',
+                language: 'Markdown',
+                stars: 0,
+                forks: 0,
+                url: 'https://github.com/joe-qai/build-your-own-x'
             }
         ];
 
         const getLanguageIcon = (lang) => {
             const icons = {
                 'Python': '🐍',
-                'HTML': '🌐',
                 'Java': '☕',
-                'Markdown': '📝'
+                'HTML': '🌐',
+                'Markdown': '📝',
+                'XSLT': '📊'
             };
             return icons[lang] || '📦';
         };
@@ -683,18 +819,22 @@
         const getLanguageClass = (lang) => {
             const classes = {
                 'Python': 'python',
-                'HTML': 'html',
                 'Java': 'java',
-                'Markdown': 'markdown'
+                'HTML': 'html',
+                'Markdown': 'markdown',
+                'XSLT': 'xslt'
             };
             return classes[lang] || '';
         };
 
         const renderProjects = () => {
             const grid = document.getElementById('projects-grid');
-            projects.forEach(project => {
+            projects.forEach((project, index) => {
                 const card = document.createElement('div');
                 card.className = 'project-card';
+                card.style.animationDelay = `${index * 0.05 + 0.1}s`;
+                card.style.opacity = '0';
+                card.onclick = () => window.open(project.url, '_blank');
                 card.innerHTML = `
                     <div class="project-header">
                         <div class="project-icon ${getLanguageClass(project.language)}">
@@ -717,7 +857,7 @@
                                 ${project.forks}
                             </span>
                         </div>
-                        <a href="${project.url}" target="_blank" class="project-link">View</a>
+                        <a href="${project.url}" target="_blank" class="project-link">View →</a>
                     </div>
                 `;
                 grid.appendChild(card);
