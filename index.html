@@ -174,36 +174,35 @@
             height: 18px;
         }
 
-        /* QR Code */
-        .qrcode-section {
-            margin-top: 32px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .qrcode-card {
+        /* QR Code Float */
+        .qrcode-float {
+            position: fixed;
+            right: 16px;
+            bottom: 24px;
+            z-index: 1000;
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 16px;
+            padding: 12px;
             text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
         }
 
-        .qrcode-card:hover {
+        .qrcode-float:hover {
             border-color: var(--accent-python);
-            transform: translateY(-2px);
+            transform: translateY(-4px);
         }
 
         .qrcode-img {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: var(--radius-sm);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .qrcode-label {
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             color: var(--text-secondary);
             margin: 0;
         }
@@ -520,13 +519,6 @@
                     CSDN
                 </a>
             </div>
-
-            <div class="qrcode-section">
-                <div class="qrcode-card">
-                    <img src="qroder.jpg" alt="公众号二维码" class="qrcode-img">
-                    <p class="qrcode-label">扫码关注公众号</p>
-                </div>
-            </div>
         </header>
 
         <!-- Stats -->
@@ -562,6 +554,12 @@
         <footer>
             <p>© 2026 Joe Qai · Built with <a href="https://www.python.org/" target="_blank">Python</a> & <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></p>
         </footer>
+    </div>
+
+    <!-- QR Code Float -->
+    <div class="qrcode-float">
+        <img src="qroder.jpg" alt="公众号二维码" class="qrcode-img">
+        <p class="qrcode-label">扫码关注公众号</p>
     </div>
 
     <script>
