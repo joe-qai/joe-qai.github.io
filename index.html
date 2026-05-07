@@ -278,8 +278,8 @@
         /* Stats */
         .stats {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
             margin: 60px 0;
         }
 
@@ -287,7 +287,7 @@
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 24px;
+            padding: 32px 24px;
             text-align: center;
             transition: all 0.3s ease;
         }
@@ -298,20 +298,29 @@
         }
 
         .stat-value {
-            font-size: 2rem;
+            font-size: 3rem;
             font-weight: 700;
             font-family: var(--font-mono);
-            margin-bottom: 4px;
+            margin-bottom: 8px;
         }
 
-        .stat-value.projects { color: var(--accent-python); }
         .stat-value.stars { color: var(--accent-gold); }
         .stat-value.forks { color: var(--accent-cyan); }
         .stat-value.years { color: var(--accent-green); }
 
+        .stat-icon {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .stat-icon.stars { color: var(--accent-gold); }
+        .stat-icon.forks { color: var(--accent-cyan); }
+        .stat-icon.years { color: var(--accent-green); }
+
         .stat-label {
-            font-size: 0.85rem;
+            font-size: 1rem;
             color: var(--text-muted);
+            font-weight: 500;
         }
 
         /* Projects Section */
@@ -512,7 +521,7 @@
         /* Responsive */
         @media (min-width: 640px) {
             .stats {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(3, 1fr);
                 gap: 20px;
             }
 
@@ -587,7 +596,7 @@
                     CSDN
                 </a>
                 <button class="social-btn wechat-btn-inline" id="wechatBtn">
-                    <img src="https://cdn-icons-png.flaticon.com/512/733/733504.png" alt="WeChat">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48"><g fill="none" fill-rule="evenodd"><circle cx="34" cy="18" r="12" fill="#FFF"/><circle cx="18" cy="28" r="14" fill="#07C160"/><path fill="#000" fill-opacity=".1" d="M26.921 22.125c-.309.16-.634.339-.973.538-.37.21-.75.399-1.139.56-.473.193-.962.343-1.467.45-.558.118-1.13.206-1.713.264-.543.054-1.081.081-1.611.081-.53 0-1.068-.027-1.611-.081-.583-.058-1.155-.146-1.713-.264-.505-.107-.994-.257-1.467-.45-.389-.161-.769-.35-1.139-.56-.339-.199-.664-.378-.973-.538V30c0 .552.448 1 1 1 .452 0 .848-.344.979-.808.309-.874.779-1.688 1.39-2.423.611-.735 1.362-1.37 2.236-1.887.874-.518 1.866-.901 2.962-1.031 1.096-.13 2.192.101 3.192.519.999.418 1.86.995 2.571 1.713.711.718 1.271 1.574 1.669 2.538.039.095.082.192.129.29-.427.151-.869.27-1.326.351-.62.116-1.256.173-1.906.173-.65 0-1.286-.057-1.906-.173-.457-.081-.9-.2-1.326-.351-.047-.098-.09-.195-.129-.29-.123-.338-.218-.69-.285-1.054-.067-.364-.099-.732-.099-1.103 0-.371.032-.739.099-1.103.067-.364.162-.716.285-1.054.151-.397.341-.772.567-1.123.226-.351.485-.675.782-.968.594-.589 1.288-1.065 2.072-1.411.784-.346 1.622-.548 2.498-.597V15c0-.552-.448-1-1-1s-1 .448-1 1v2.476c-.117.01-.233.026-.348.047-.15.027-.298.06-.444.097-.344.083-.679.19-1.002.319-.323.129-.635.281-.933.455-.298.174-.583.37-.853.588zM36.938 28.016c-.113-.822-.401-1.592-.85-2.279-.449-.687-1.054-1.287-1.793-1.769-.739-.482-1.583-.824-2.5-1.002-.165-.03-.332-.056-.498-.078-.166-.022-.333-.032-.5-.032-.167 0-.334.01-.5.032-.166.022-.333.048-.498.078-.917.178-1.761.52-2.5 1.002-.739.482-1.344 1.082-1.793 1.769-.449.687-.737 1.457-.85 2.279-.113.822.006 1.662.344 2.467.338.805.859 1.525 1.543 2.122.684.597 1.511 1.058 2.445 1.352.167.053.339.101.513.143.174.042.351.078.53.107.179.029.358.043.537.043.179 0 .358-.014.537-.043.179-.029.356-.065.53-.107.174-.042.346-.09.513-.143.934-.294 1.761-.755 2.445-1.352.684-.597 1.205-1.317 1.543-2.122.338-.805.457-1.645.344-2.467zm-3.038 2.595c-.189-.456-.511-.844-.938-1.115-.427-.271-.948-.371-1.406-.265-.13.028-.256.07-.375.125-.119.055-.234.118-.344.188-.224.141-.429.312-.611.509-.182.197-.34.42-.472.665-.132.245-.228.512-.286.797-.058.285-.056.581.01.871.066.29.205.563.412.797.207.234.477.411.794.513.317.102.668.113 1.002.031.167-.042.328-.101.479-.176.151-.075.296-.16.433-.256.273-.192.51-.42.706-.679.196-.259.351-.547.458-.858.107-.311.163-.648.158-1.001-.005-.353-.125-.69-.334-1.001z"/></g></svg>
                     <span>WeChat</span>
                 </button>
             </div>
@@ -596,19 +605,18 @@
         <!-- Stats -->
         <div class="stats">
             <div class="stat-card">
-                <div class="stat-value projects">24</div>
-                <div class="stat-label">Projects</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value stars">65</div>
+                <div class="stat-icon stars">⭐</div>
+                <div class="stat-value stars">265</div>
                 <div class="stat-label">Stars</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value forks">38</div>
+                <div class="stat-icon forks">🔀</div>
+                <div class="stat-value forks">138</div>
                 <div class="stat-label">Forks</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value years">6+</div>
+                <div class="stat-icon years">💼</div>
+                <div class="stat-value years">10+</div>
                 <div class="stat-label">Years</div>
             </div>
         </div>
@@ -845,11 +853,11 @@
                     <div class="project-bottom">
                         <div class="project-stats">
                             <span class="project-stat">
-                                <img src="https://cdn-icons-png.flaticon.com/512/1161/1161281.png" alt="Stars">
+                                <span class="stat-emoji">⭐</span>
                                 ${project.stars}
                             </span>
                             <span class="project-stat">
-                                <img src="https://cdn-icons-png.flaticon.com/512/1161/1161330.png" alt="Forks">
+                                <span class="stat-emoji">🔀</span>
                                 ${project.forks}
                             </span>
                         </div>
