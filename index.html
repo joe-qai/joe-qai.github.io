@@ -233,16 +233,14 @@
             flex-wrap: wrap;
         }
 
-        .dragon-img {
+        .dragon-video {
             display: block;
             margin: 0 auto;
-            animation-play-state: running;
-            -webkit-animation-play-state: running;
             -webkit-transform: translateZ(0);
             transform: translateZ(0);
-            will-change: auto;
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
+            object-fit: contain;
         }
 
         .social-links a {
@@ -746,7 +744,9 @@
                     <p class="achievement-desc">I created this GitHub profile to enrich my development experience and help those in need.</p>
                     <p class="achievement-desc">I truly welcome any suggestions or code reviews to help me keep improving 💪.</p>
                     <div class="dragon-gif" style="text-align: center; margin: 16px 0;">
-                        <img src="long.gif" alt="🐉 龙" style="width: 150px; height: auto; background: #0a0a0f; border-radius: 8px; display: block; image-rendering: auto;" class="dragon-img" loading="eager" decoding="async" crossorigin="anonymous">
+                        <video class="dragon-video" autoplay muted loop playsinline webkit-playsinline style="width: 150px; height: auto; background: #0a0a0f; border-radius: 8px; display: block;">
+                            <source src="long.mp4" type="video/mp4">
+                        </video>
                     </div>
                     <p class="achievement-desc">⭐ Feel free to follow me — your support means a lot to me!</p>
                     <p class="achievement-desc">Thanks for stopping by my profile ❤️.</p>
@@ -1003,23 +1003,27 @@
         document.addEventListener('DOMContentLoaded', () => {
             renderProjects();
             
-            // Fix GIF animation in WeChat H5 and iOS Safari - simplified version
-            const dragonImg = document.querySelector('.dragon-img');
-            if (dragonImg) {
-                // Simple and reliable method: clone and replace the image
-                const src = dragonImg.src;
-                const parent = dragonImg.parentNode;
-                const newImg = document.createElement('img');
-                newImg.className = dragonImg.className;
-                newImg.alt = dragonImg.alt;
-                newImg.src = src + (src.indexOf('?') === -1 ? '?' : '&') + Date.now();
-                newImg.style.cssText = dragonImg.style.cssText;
-                newImg.loading = 'eager';
+            // Ensure video plays in WeChat and iOS
+            const dragonVideo = document.querySelector('.dragon-video');
+            if (dragonVideo) {
+                // Try to play on page load
+                const playPromise = dragonVideo.play();
                 
-                // Add WebKit-specific attributes
-                newImg.setAttribute('decoding', 'async');
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.log('Video autoplay prevented, will try again on user interaction');
+                    });
+                }
                 
-                parent.replaceChild(newImg, dragonImg);
+                // Also try playing on first user interaction
+                const playVideo = () => {
+                    dragonVideo.play().catch(err => console.log('Video play failed:', err));
+                    document.removeEventListener('touchstart', playVideo);
+                    document.removeEventListener('click', playVideo);
+                };
+                
+                document.addEventListener('touchstart', playVideo, { once: true });
+                document.addEventListener('click', playVideo, { once: true });
             }
             
             // WeChat QR Code Modal
