@@ -233,6 +233,13 @@
             flex-wrap: wrap;
         }
 
+        .dragon-img {
+            display: block;
+            margin: 0 auto;
+            animation-play-state: running;
+            -webkit-animation-play-state: running;
+        }
+
         .social-links a {
             display: flex;
             align-items: center;
@@ -602,6 +609,7 @@
 
             .header-left {
                 text-align: center;
+                padding-right: 0;
             }
 
             .avatar-wrapper {
@@ -610,6 +618,33 @@
 
             .social-links {
                 justify-content: center;
+                gap: 8px;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding: 0 10px;
+            }
+
+            .social-links a,
+            .social-links .social-btn {
+                padding: 8px 14px;
+                font-size: 0.8rem;
+                gap: 6px;
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+
+            .social-links img {
+                width: 16px;
+                height: 16px;
+            }
+
+            .social-links svg {
+                width: 18px;
+                height: 18px;
+            }
+
+            .dragon-gif img {
+                width: 120px !important;
             }
         }
 
@@ -706,7 +741,7 @@
                     <p class="achievement-desc">I created this GitHub profile to enrich my development experience and help those in need.</p>
                     <p class="achievement-desc">I truly welcome any suggestions or code reviews to help me keep improving 💪.</p>
                     <div class="dragon-gif" style="text-align: center; margin: 16px 0;">
-                        <img src="long.gif" alt="🐉 龙" style="width: 150px; height: auto; background: #0a0a0f; border-radius: 8px;">
+                        <img src="long.gif" alt="🐉 龙" style="width: 150px; height: auto; background: #0a0a0f; border-radius: 8px; display: block; animation-play-state: running; -webkit-animation-play-state: running; image-rendering: auto;" class="dragon-img">
                     </div>
                     <p class="achievement-desc">⭐ Feel free to follow me — your support means a lot to me!</p>
                     <p class="achievement-desc">Thanks for stopping by my profile ❤️.</p>
@@ -963,6 +998,17 @@
         document.addEventListener('DOMContentLoaded', () => {
             renderProjects();
             initAndStartCounting();
+            
+            // Fix GIF animation in WeChat H5
+            const dragonImg = document.querySelector('.dragon-img');
+            if (dragonImg) {
+                // Force reload GIF to ensure animation plays in WeChat H5
+                const src = dragonImg.src;
+                dragonImg.src = '';
+                setTimeout(() => {
+                    dragonImg.src = src + (src.indexOf('?') === -1 ? '?' : '&') + Date.now();
+                }, 50);
+            }
             
             // WeChat QR Code Modal
             const wechatBtn = document.getElementById('wechatBtn');
