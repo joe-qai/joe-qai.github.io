@@ -1005,29 +1005,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             renderProjects();
             
-            // Ensure video plays in WeChat and iOS
-            const dragonVideo = document.querySelector('.dragon-video');
-            if (dragonVideo) {
-                // Try to play on page load
-                const playPromise = dragonVideo.play();
-                
-                if (playPromise !== undefined) {
-                    playPromise.catch(error => {
-                        console.log('Video autoplay prevented, will try again on user interaction');
-                    });
-                }
-                
-                // Also try playing on first user interaction
-                const playVideo = () => {
-                    dragonVideo.play().catch(err => console.log('Video play failed:', err));
-                    document.removeEventListener('touchstart', playVideo);
-                    document.removeEventListener('click', playVideo);
-                };
-                
-                document.addEventListener('touchstart', playVideo, { once: true });
-                document.addEventListener('click', playVideo, { once: true });
-            }
-            
             // WeChat QR Code Modal
             const wechatBtn = document.getElementById('wechatBtn');
             const qrcodeOverlay = document.getElementById('qrcodeOverlay');
