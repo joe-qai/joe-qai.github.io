@@ -757,7 +757,7 @@
                     </div>
                     <p class="achievement-desc">Thanks for stopping by my profile ❤️.</p>
                     <audio id="dragonSound" preload="auto">
-                        <source src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" type="audio/mpeg">
+                        <source src="https://assets.mixkit.co/active_storage/sfx/309/309.wav" type="audio/wav">
                     
                 </div>
             </div>
@@ -1028,19 +1028,35 @@
                 }
             });
 
-            // 龙吟声播放功能 - 点击页面任意位置播放（可循环）
+            // 龙吟声播放功能 - 点击页面任意位置播放（循环两次）
             const dragonSound = document.getElementById('dragonSound');
+            let isPlaying = false;
             
             const playDragonSound = () => {
-                if (dragonSound) {
-                    dragonSound.currentTime = 0;
-                    dragonSound.play().catch(err => {
-                        console.log('Sound play failed:', err);
-                    });
+                if (dragonSound && !isPlaying) {
+                    isPlaying = true;
+                    let playCount = 0;
+                    const maxPlays = 2;
+                    
+                    const playNext = () => {
+                        if (playCount < maxPlays) {
+                            dragonSound.currentTime = 0;
+                            dragonSound.play().catch(err => {
+                                console.log('Sound play failed:', err);
+                                isPlaying = false;
+                            });
+                            playCount++;
+                        } else {
+                            isPlaying = false;
+                        }
+                    };
+                    
+                    dragonSound.addEventListener('ended', playNext);
+                    playNext();
                 }
             };
             
-            // 点击页面任意位置播放龙吟声（可重复播放）
+            // 点击页面任意位置播放龙吟声（每次点击播放两次）
             document.addEventListener('click', playDragonSound);
             document.addEventListener('touchstart', playDragonSound);
             
