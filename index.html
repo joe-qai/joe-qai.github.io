@@ -1068,6 +1068,11 @@
                     dragonVideo.play().catch(() => {});
                 };
                 
+                // 点击视频跳转到另一个页面
+                dragonVideo.addEventListener('click', () => {
+                    window.open('https://joe-qai.github.io/joe-qai/', '_blank');
+                });
+                
                 // 页面加载完成后播放
                 window.addEventListener('load', forcePlay);
                 
