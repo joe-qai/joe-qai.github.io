@@ -1051,7 +1051,7 @@
                         }
                     };
                     
-                    dragonSound.addEventListener('ended', playNext);
+                    dragonSound.addEventListener('ended', playNext, { once: true });
                     playNext();
                 }
             };
