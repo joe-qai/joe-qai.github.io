@@ -712,6 +712,23 @@
                 transform: none;
             }
         }
+
+        /* 隐藏视频控制栏 */
+        #dragonVideo::-webkit-media-controls,
+        #dragonVideo::-webkit-media-controls-enclosure,
+        #dragonVideo::-webkit-media-controls-panel,
+        #dragonVideo::-webkit-media-controls-play-button,
+        #dragonVideo::-webkit-media-controls-volume-control-container,
+        #dragonVideo::-webkit-media-controls-mute-button,
+        #dragonVideo::-webkit-media-controls-timeline,
+        #dragonVideo::-webkit-media-controls-current-time-display,
+        #dragonVideo::-webkit-media-controls-time-remaining-display,
+        #dragonVideo::-webkit-media-controls-fullscreen-button,
+        #dragonVideo::-webkit-media-controls-overlay-play-button {
+            display: none !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
     </style>
 </head>
 <body>
