@@ -713,7 +713,7 @@
             }
         }
 
-        /* 隐藏视频控制栏 */
+        /* 隐藏视频控制栏和悬停效果 */
         #dragonVideo::-webkit-media-controls,
         #dragonVideo::-webkit-media-controls-enclosure,
         #dragonVideo::-webkit-media-controls-panel,
@@ -728,6 +728,16 @@
             display: none !important;
             opacity: 0 !important;
             pointer-events: none !important;
+        }
+        
+        /* 移除视频悬停效果 */
+        #dragonVideo {
+            pointer-events: none;
+        }
+        
+        /* 让父容器处理点击事件 */
+        .dragon-gif {
+            cursor: pointer;
         }
     </style>
 </head>
@@ -1085,11 +1095,14 @@
                     dragonVideo.play().catch(() => {});
                 };
                 
-                // 点击视频跳转到另一个页面
-                dragonVideo.addEventListener('click', (e) => {
-                    e.stopPropagation(); // 阻止事件冒泡，避免触发龙吟声
-                    window.open('https://joe-qai.github.io/joe-qai/', '_blank');
-                });
+                // 点击龙的区域跳转到另一个页面
+                const dragonGif = document.querySelector('.dragon-gif');
+                if (dragonGif) {
+                    dragonGif.addEventListener('click', (e) => {
+                        e.stopPropagation(); // 阻止事件冒泡，避免触发龙吟声
+                        window.open('https://joe-qai.github.io/joe-qai/', '_blank');
+                    });
+                }
                 
                 // 页面加载完成后播放
                 window.addEventListener('load', forcePlay);
