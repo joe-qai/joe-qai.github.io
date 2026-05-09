@@ -744,11 +744,8 @@
                     <p class="achievement-desc">I created this GitHub profile to enrich my development experience and help those in need.</p>
                     <p class="achievement-desc">I truly welcome any suggestions or code reviews to help me keep improving 💪.</p>
                     <p class="achievement-desc">⭐ Feel free to follow me — your support means a lot to me!</p>
-                    <div class="dragon-gif" style="text-align: center; margin: 16px 0;">
-                        <video id="dragonVideo" muted loop playsinline webkit-playsinline
-                               style="width: 150px; height: auto; display: block; margin: 0 auto; border-radius: 8px; object-fit: cover;"
-                               src="cycle.mp4">
-                        </video>
+                    <div class="dragon-gif" style="text-align: center; margin: 16px 0; position: relative; width: 150px; height: 150px; margin-left: auto; margin-right: auto;">
+                        <canvas id="dragonCanvas" width="150" height="150" style="display: block; border-radius: 8px;"></canvas>
                     </div>
                     <p class="achievement-desc">Thanks for stopping by my profile ❤️.</p>
                 </div>
@@ -1043,33 +1040,47 @@
                 }
             });
 
-            // 微信H5视频自动播放兼容处理
-            const dragonVideo = document.getElementById('dragonVideo');
-            if (dragonVideo) {
-                // 尝试自动播放
-                const playVideo = () => {
-                    dragonVideo.play().catch(() => {
-                        // 自动播放失败，等待用户交互后播放
-                        document.addEventListener('touchstart', () => {
-                            dragonVideo.play();
-                        }, { once: true });
-                        document.addEventListener('click', () => {
-                            dragonVideo.play();
-                        }, { once: true });
-                    });
+            // Canvas 绘制 GIF 动画（兼容微信内置浏览器）
+            const canvas = document.getElementById('dragonCanvas');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                const img = new Image();
+                img.crossOrigin = 'anonymous';
+                img.src = 'cycle.gif';
+                
+                img.onload = () => {
+                    // 计算缩放比例，保持宽高比
+                    const scale = Math.min(150 / img.width, 150 / img.height);
+                    const w = img.width * scale;
+                    const h = img.height * scale;
+                    const x = (150 - w) / 2;
+                    const y = (150 - h) / 2;
+                    
+                    // 使用 requestAnimationFrame 实现动画循环
+                    let lastTime = 0;
+                    const frameInterval = 1000 / 15; // GIF 帧率约 15fps
+                    
+                    const drawFrame = (currentTime) => {
+                        if (currentTime - lastTime >= frameInterval) {
+                            ctx.clearRect(0, 0, 150, 150);
+                            ctx.drawImage(img, x, y, w, h);
+                            lastTime = currentTime;
+                        }
+                        requestAnimationFrame(drawFrame);
+                    };
+                    
+                    requestAnimationFrame(drawFrame);
                 };
-
-                // 页面加载完成后尝试播放
-                if (document.readyState === 'complete') {
-                    playVideo();
-                } else {
-                    window.addEventListener('load', playVideo);
-                }
-
-                // 微信JSBridge就绪后尝试播放
-                document.addEventListener('WeixinJSBridgeReady', () => {
-                    dragonVideo.play();
-                });
+                
+                img.onerror = () => {
+                    // 加载失败时显示占位符
+                    ctx.fillStyle = '#2a2a3a';
+                    ctx.fillRect(0, 0, 150, 150);
+                    ctx.fillStyle = '#9090a0';
+                    ctx.font = '12px sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('🐉', 75, 80);
+                };
             }
         });
     </script>
