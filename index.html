@@ -1069,7 +1069,8 @@
                 };
                 
                 // 点击视频跳转到另一个页面
-                dragonVideo.addEventListener('click', () => {
+                dragonVideo.addEventListener('click', (e) => {
+                    e.stopPropagation(); // 阻止事件冒泡，避免触发龙吟声
                     window.open('https://joe-qai.github.io/joe-qai/', '_blank');
                 });
                 
