@@ -756,6 +756,9 @@
                         </video>
                     </div>
                     <p class="achievement-desc">Thanks for stopping by my profile ❤️.</p>
+                    <audio id="dragonSound" preload="auto">
+                        <source src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" type="audio/mpeg">
+                    
                 </div>
             </div>
         </header>
@@ -1025,6 +1028,24 @@
                 }
             });
 
+            // 龙吟声播放功能 - 点击页面任意位置播放
+            const dragonSound = document.getElementById('dragonSound');
+            let soundPlayed = false;
+            
+            const playDragonSound = () => {
+                if (dragonSound && !soundPlayed) {
+                    soundPlayed = true;
+                    dragonSound.currentTime = 0;
+                    dragonSound.play().catch(err => {
+                        console.log('Sound play failed:', err);
+                    });
+                }
+            };
+            
+            // 点击页面任意位置播放龙吟声（只播放一次）
+            document.addEventListener('click', playDragonSound, { once: true });
+            document.addEventListener('touchstart', playDragonSound, { once: true });
+            
             // 微信H5视频自动播放处理
             const dragonVideo = document.getElementById('dragonVideo');
             if (dragonVideo) {
