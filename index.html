@@ -1028,13 +1028,11 @@
                 }
             });
 
-            // 龙吟声播放功能 - 点击页面任意位置播放
+            // 龙吟声播放功能 - 点击页面任意位置播放（可循环）
             const dragonSound = document.getElementById('dragonSound');
-            let soundPlayed = false;
             
             const playDragonSound = () => {
-                if (dragonSound && !soundPlayed) {
-                    soundPlayed = true;
+                if (dragonSound) {
                     dragonSound.currentTime = 0;
                     dragonSound.play().catch(err => {
                         console.log('Sound play failed:', err);
@@ -1042,9 +1040,9 @@
                 }
             };
             
-            // 点击页面任意位置播放龙吟声（只播放一次）
-            document.addEventListener('click', playDragonSound, { once: true });
-            document.addEventListener('touchstart', playDragonSound, { once: true });
+            // 点击页面任意位置播放龙吟声（可重复播放）
+            document.addEventListener('click', playDragonSound);
+            document.addEventListener('touchstart', playDragonSound);
             
             // 微信H5视频自动播放处理
             const dragonVideo = document.getElementById('dragonVideo');
