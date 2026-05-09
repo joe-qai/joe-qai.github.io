@@ -745,7 +745,7 @@
                     <p class="achievement-desc">I truly welcome any suggestions or code reviews to help me keep improving 💪.</p>
                     <p class="achievement-desc">⭐ Feel free to follow me — your support means a lot to me!</p>
                     <div class="dragon-gif" style="text-align: center; margin: 16px 0;">
-                        <video autoplay muted loop playsinline webkit-playsinline
+                        <video id="dragonVideo" muted loop playsinline webkit-playsinline
                                style="width: 150px; height: auto; display: block; margin: 0 auto; border-radius: 8px; object-fit: cover;"
                                src="cycle.mp4">
                         </video>
@@ -1042,6 +1042,35 @@
                     qrcodeOverlay.classList.remove('active');
                 }
             });
+
+            // 微信H5视频自动播放兼容处理
+            const dragonVideo = document.getElementById('dragonVideo');
+            if (dragonVideo) {
+                // 尝试自动播放
+                const playVideo = () => {
+                    dragonVideo.play().catch(() => {
+                        // 自动播放失败，等待用户交互后播放
+                        document.addEventListener('touchstart', () => {
+                            dragonVideo.play();
+                        }, { once: true });
+                        document.addEventListener('click', () => {
+                            dragonVideo.play();
+                        }, { once: true });
+                    });
+                };
+
+                // 页面加载完成后尝试播放
+                if (document.readyState === 'complete') {
+                    playVideo();
+                } else {
+                    window.addEventListener('load', playVideo);
+                }
+
+                // 微信JSBridge就绪后尝试播放
+                document.addEventListener('WeixinJSBridgeReady', () => {
+                    dragonVideo.play();
+                });
+            }
         });
     </script>
 </body>
