@@ -441,6 +441,45 @@
             gap: 16px;
         }
 
+        .expand-btn {
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            margin: 24px auto 0;
+            padding: 12px 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .expand-btn:hover {
+            border-color: var(--accent-python);
+            color: var(--accent-python-light);
+            transform: translateY(-2px);
+        }
+
+        .expand-btn svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .expand-btn.expanded svg {
+            transform: rotate(180deg);
+        }
+
+        .project-card.hidden {
+            display: none;
+        }
+
         .project-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -678,7 +717,7 @@
 
         @media (min-width: 1024px) {
             .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr);
                 gap: 24px;
             }
         }
@@ -797,6 +836,7 @@
             </div>
             <div id="projects-grid" class="projects-grid">
             </div>
+            <div id="projects-expand-container"></div>
         </section>
 
         <!-- Footer -->
@@ -822,6 +862,22 @@
                 stars: 100 + Math.floor(Math.random() * 200),
                 forks: 50 + Math.floor(Math.random() * 100),
                 url: 'https://joe-qai.github.io/testgen/'
+            },
+            {
+                name: 'rvr-performance-manager',
+                description: 'RVR 性能管理工具，用于监控和分析应用性能指标，提供实时性能数据可视化。',
+                language: 'Python',
+                stars: 100 + Math.floor(Math.random() * 200),
+                forks: 50 + Math.floor(Math.random() * 100),
+                url: 'https://joe-qai.github.io/rvr-performance-manager/'
+            },
+            {
+                name: 'plants-vs-zombies',
+                description: '经典植物大战僵尸游戏网页版，使用 HTML5 Canvas 实现，支持多种游戏模式。',
+                language: 'HTML',
+                stars: 100 + Math.floor(Math.random() * 200),
+                forks: 50 + Math.floor(Math.random() * 100),
+                url: 'https://joe-qai.github.io/plants-vs-zombies/'
             },
             {
                 name: 'qa-skills',
@@ -993,11 +1049,25 @@
             statsInterval = setInterval(incrementStats, 2000);
         };
 
+        const getVisibleProjectCount = () => {
+            if (window.innerWidth >= 1024) {
+                return 6;
+            } else if (window.innerWidth >= 640) {
+                return 4;
+            } else {
+                return 3;
+            }
+        };
+
         const renderProjects = () => {
             const grid = document.getElementById('projects-grid');
+            const expandContainer = document.getElementById('projects-expand-container');
+            const visibleCount = getVisibleProjectCount();
+            let isExpanded = false;
+
             projects.forEach((project, index) => {
                 const card = document.createElement('div');
-                card.className = 'project-card';
+                card.className = `project-card${index >= visibleCount ? ' hidden' : ''}`;
                 card.style.animation = `fadeIn 0.5s ease ${index * 0.05 + 0.3}s forwards`;
                 card.style.opacity = '0';
                 card.innerHTML = `
@@ -1034,7 +1104,58 @@
                 };
                 grid.appendChild(card);
             });
+
+            if (projects.length > visibleCount) {
+                const expandBtn = document.createElement('button');
+                expandBtn.className = 'expand-btn';
+                expandBtn.innerHTML = `
+                    <span>展开更多项目</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                `;
+                expandBtn.onclick = () => {
+                    isExpanded = !isExpanded;
+                    if (isExpanded) {
+                        const hiddenCards = document.querySelectorAll('.project-card.hidden');
+                        hiddenCards.forEach((card, index) => {
+                            card.style.opacity = '0';
+                            card.classList.remove('hidden');
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                            }, index * 50);
+                        });
+                    } else {
+                        const extraCards = document.querySelectorAll('.project-card');
+                        extraCards.forEach((card, index) => {
+                            if (index >= visibleCount) {
+                                card.style.opacity = '0';
+                                setTimeout(() => {
+                                    card.classList.add('hidden');
+                                }, 300);
+                            }
+                        });
+                    }
+                    expandBtn.classList.toggle('expanded');
+                    expandBtn.querySelector('span').textContent = isExpanded ? '收起项目' : '展开更多项目';
+                };
+                expandContainer.appendChild(expandBtn);
+            }
         };
+
+        let resizeTimeout;
+        const handleResize = () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                const grid = document.getElementById('projects-grid');
+                const expandContainer = document.getElementById('projects-expand-container');
+                grid.innerHTML = '';
+                expandContainer.innerHTML = '';
+                renderProjects();
+            }, 200);
+        };
+
+        window.addEventListener('resize', handleResize);
 
         document.addEventListener('DOMContentLoaded', () => {
             renderProjects();
