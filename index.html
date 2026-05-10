@@ -1016,6 +1016,7 @@
         let currentStars = 1000;
         let currentForks = 500;
         let statsInterval = null;
+        let isProjectsExpanded = false;
 
         const initAndStartCounting = async () => {
             starsElement = document.getElementById('totalStars');
@@ -1115,8 +1116,8 @@
                     </svg>
                 `;
                 expandBtn.onclick = () => {
-                    isExpanded = !isExpanded;
-                    if (isExpanded) {
+                    isProjectsExpanded = !isProjectsExpanded;
+                    if (isProjectsExpanded) {
                         const hiddenCards = document.querySelectorAll('.project-card.hidden');
                         hiddenCards.forEach((card, index) => {
                             card.style.opacity = '0';
@@ -1137,7 +1138,7 @@
                         });
                     }
                     expandBtn.classList.toggle('expanded');
-                    expandBtn.querySelector('span').textContent = isExpanded ? '收起项目' : '展开更多项目';
+                    expandBtn.querySelector('span').textContent = isProjectsExpanded ? '收起项目' : '展开更多项目';
                 };
                 expandContainer.appendChild(expandBtn);
             }
@@ -1149,10 +1150,9 @@
             resizeTimeout = setTimeout(() => {
                 const newVisibleCount = getVisibleProjectCount();
                 const cards = document.querySelectorAll('.project-card');
-                const expandBtn = document.querySelector('.expand-btn');
                 
                 cards.forEach((card, index) => {
-                    if (!expandBtn || !expandBtn.classList.contains('expanded')) {
+                    if (!isProjectsExpanded) {
                         if (index >= newVisibleCount) {
                             card.classList.add('hidden');
                         } else {
