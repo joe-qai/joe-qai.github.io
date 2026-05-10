@@ -1147,12 +1147,21 @@
         const handleResize = () => {
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
-                const grid = document.getElementById('projects-grid');
-                const expandContainer = document.getElementById('projects-expand-container');
-                grid.innerHTML = '';
-                expandContainer.innerHTML = '';
-                renderProjects();
-            }, 200);
+                const newVisibleCount = getVisibleProjectCount();
+                const cards = document.querySelectorAll('.project-card');
+                const expandBtn = document.querySelector('.expand-btn');
+                
+                cards.forEach((card, index) => {
+                    if (!expandBtn || !expandBtn.classList.contains('expanded')) {
+                        if (index >= newVisibleCount) {
+                            card.classList.add('hidden');
+                        } else {
+                            card.classList.remove('hidden');
+                            card.style.opacity = '1';
+                        }
+                    }
+                });
+            }, 300);
         };
 
         window.addEventListener('resize', handleResize);
