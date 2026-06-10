@@ -67,14 +67,14 @@
 
         .header-content {
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 50px;
+            grid-template-columns: 1fr 1.6fr;
+            gap: 30px;
             align-items: flex-start;
         }
 
         .header-left {
             text-align: center;
-            padding-right: 20px;
+            padding-right: 0;
         }
 
         .header-right {
@@ -184,44 +184,6 @@
         .social-links img {
             width: 18px;
             height: 18px;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
-            margin: 0 auto;
-            max-width: 380px;
-        }
-
-        .stat-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 16px 8px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .stat-card:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-2px);
-        }
-
-        .stat-value {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 2px;
-        }
-
-        .stat-value.stars { color: var(--accent-python); }
-        .stat-value.forks { color: var(--accent-cyan); }
-        .stat-value.years { color: var(--accent-gold); }
-
-        .stat-label {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            font-weight: 500;
         }
 
         .about-section {
@@ -741,21 +703,6 @@
                             WeChat
                         </button>
                     </div>
-
-                    <div class="stats">
-                        <div class="stat-card">
-                            <div class="stat-value stars" id="totalStars">1000</div>
-                            <div class="stat-label">GitHub Stars</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value forks" id="totalForks">500</div>
-                            <div class="stat-label">Forks</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value years" id="experience">6</div>
-                            <div class="stat-label">Years Exp</div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="header-right">
@@ -833,34 +780,6 @@
             return classes[lang] || '';
         };
 
-        const fetchTotalStats = async () => {
-            let totalStars = 0, totalForks = 0;
-            projects.forEach(p => { totalStars += p.stars; totalForks += p.forks; });
-            return { stars: Math.max(totalStars, 1000 + Math.floor(Math.random() * 500)), forks: Math.max(totalForks, 500 + Math.floor(Math.random() * 250)) };
-        };
-
-        let starsElement, forksElement, currentStars = 1000, currentForks = 500, statsInterval = null;
-
-        const initAndStartCounting = async () => {
-            starsElement = document.getElementById('totalStars');
-            forksElement = document.getElementById('totalForks');
-            if (!starsElement || !forksElement) return;
-            const initialStats = await fetchTotalStats();
-            currentStars = initialStats.stars;
-            currentForks = initialStats.forks;
-            starsElement.textContent = currentStars;
-            forksElement.textContent = currentForks;
-            if (statsInterval) clearInterval(statsInterval);
-            const incrementStats = () => {
-                currentStars += Math.floor(Math.random() * 10) + 1;
-                currentForks += Math.floor(Math.random() * 5) + 1;
-                starsElement.textContent = currentStars;
-                forksElement.textContent = currentForks;
-            };
-            incrementStats();
-            statsInterval = setInterval(incrementStats, 2000);
-        };
-
         const getVisibleProjectCount = () => {
             if (window.innerWidth >= 1024) return 8;
             else if (window.innerWidth >= 640) return 6;
@@ -928,7 +847,6 @@
         };
 
         document.addEventListener('DOMContentLoaded', () => {
-            initAndStartCounting();
             renderProjects();
             initQRCode();
             initVideo();
