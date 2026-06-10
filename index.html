@@ -252,6 +252,11 @@
             width: 150px;
             height: auto;
             object-fit: cover;
+            pointer-events: none;
+        }
+
+        .dragon-gif {
+            cursor: pointer;
         }
 
         .projects-section {
@@ -278,7 +283,6 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 18px;
-            justify-content: center;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -724,10 +728,13 @@
                         <p class="about-desc">I welcome any suggestions and ideas to help me keep improving 💪.</p>
                         <p class="about-desc">Welcome to follow me — your support means a lot to me! 🌟</p>
 
-                        <div class="video-container">
+                        <div class="video-container dragon-gif">
                             <div class="video-wrapper">
                                 <video id="dragonVideo" muted loop playsinline webkit-playsinline x5-playsinline src="cycle.mp4"></video>
                             </div>
+                            <audio id="dragonSound" preload="auto">
+                                <source src="https://assets.mixkit.co/active_storage/sfx/309/309.wav" type="audio/wav">
+                            </audio>
                         </div>
 
                         <p class="about-desc">Thanks for stopping by my profile ❤️.</p>
@@ -847,6 +854,17 @@
         const initVideo = () => {
             const video = document.getElementById('dragonVideo');
             if (video) video.play().catch(() => {});
+
+            const dragonGif = document.querySelector('.dragon-gif');
+            const dragonSound = document.getElementById('dragonSound');
+            
+            if (dragonGif && dragonSound) {
+                dragonGif.addEventListener('click', () => {
+                    dragonSound.currentTime = 0;
+                    dragonSound.volume = 0.5;
+                    dragonSound.play().catch(() => {});
+                });
+            }
         };
 
         const initQRCode = () => {
